@@ -27,6 +27,9 @@ partial class Program
         //Get XMP object
         XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
+        var customSchema = new CustomSchema(metaData, "example", "http://ns.adobe.com/xap/1.0/abc");
+        customSchema["the_key"] = $"a{((char)11).ToString()}b";
+        
         //XMP PDF Schema
         PDFSchema pdfSchema = metaData.PDFSchema;
         //Set the PDF Schema details of the document
